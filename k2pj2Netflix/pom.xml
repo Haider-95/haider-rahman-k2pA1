@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- det här betyder att de startar en pom.xl och deklarerar att den följare maven pom version 4.00, hur den tolkas och vilken standard och var schemat valideras-->
+
+
+    <!-- det här är porjektinfo för att den ska veta vad jag jobbar med -->
+    <modelVersion>4.0.0</modelVersion> <!-- maven version -->
+    <groupId>se.trixzta</groupId> <!-- id för mitt projekt -->
+    <artifactId>k2pj2Netflix</artifactId> <!-- namnet på mitt projekt-->
+    <version>1.0-SNAPSHOT</version> <!-- betyder att det är en utveklingsfil-->
+    <name>k2pj2Netflix</name>
+    <packaging>war</packaging> <!-- det paketeras som en war-fil för javas webbtjänster-->
+
+
+    <!-- java version och maven -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>11</maven.compiler.target> <!-- java version -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <junit.version>5.10.2</junit.version> <!-- junit 5.10.2 är testbiblioteksversion -->
+    </properties>
+
+
+    <!-- jakarta webapi, det har namn på api, version på bibiliotek och vem som tillhandahåller bibliotek -->
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-web-api</artifactId>
+            <version>9.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- junit testing. api för att skriva testerna, version är  engine som kör testerna och versionenr är ju 5.10.2, allt det här är bara aktuellt under testerna -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+    <!-- war plugin för att bygga en war fil för att det ska kunna användas på webben  -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
